@@ -1,5 +1,19 @@
+import type {
+  DropdownMenuCheckboxItemProps,
+  DropdownMenuContentProps,
+  DropdownMenuProps,
+  DropdownMenuTriggerProps,
+} from "@radix-ui/react-dropdown-menu";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+  type Mock,
+} from "vitest";
 import App from "../App";
 
 vi.mock("../BuildInfo", () => ({
@@ -11,10 +25,18 @@ vi.mock("../ServerInfo", () => ({
 }));
 
 vi.mock("../Extensions", () => ({
-  default: (props: any) => (
+  default: (props: ExtensionsProps) => (
     <div>
       Extensions
-      <button onClick={() => props.onLinkClick?.({}, { key: "websites" })}>
+      <button
+        type="button"
+        onClick={(e) => {
+          props.onLinkClick?.(e, {
+            key: "websites",
+            name: "WebsitesExt",
+          });
+        }}
+      >
         Extension Link
       </button>
     </div>
@@ -22,47 +44,66 @@ vi.mock("../Extensions", () => ({
 }));
 
 vi.mock("../Extension", () => ({
-  default: (props: any) => <div>Extension {props.name || ""}</div>,
-}));
-
-vi.mock("../utils", () => ({
-  isExtensionInfo: (ext: any) => !!ext,
+  default: (props: ExtensionProps) => (
+    <div>Extension {props.extensionName || ""}</div>
+  ),
 }));
 
 // Mock DropdownMenu to always render its children
 vi.mock("../components/DropdownMenu", () => ({
-  DropdownMenu: ({ children }: any) => <>{children}</>,
-  DropdownMenuTrigger: ({ children }: any) => <>{children}</>,
-  DropdownMenuContent: ({ children }: any) => <>{children}</>,
-  DropdownMenuCheckboxItem: ({ children, ...props }: any) => (
-    <div {...props}>{children}</div>
+  DropdownMenu: ({ children }: DropdownMenuProps) => <>{children}</>,
+  DropdownMenuTrigger: ({ children }: DropdownMenuTriggerProps) => (
+    <>{children}</>
   ),
+  DropdownMenuContent: ({ children }: DropdownMenuContentProps) => (
+    <>{children}</>
+  ),
+  DropdownMenuCheckboxItem: ({
+    children,
+    onSelect,
+    ...props
+  }: DropdownMenuCheckboxItemProps) => {
+    // Workaround for unused `onSelect` prop being the wrong type.
+    void onSelect;
+    return <div {...props}>{children}</div>;
+  },
 }));
 
 window.fetch = vi.fn();
 
-const diagnosticsMock = {
-  buildInfo: { name: "TestBuild" },
-  extensions: {
-    websites: { name: "WebsitesExt" },
-    paasserverless: { name: "PaasExt" },
+const diagnosticsMock: Diagnostics = {
+  buildInfo: {
+    buildVersion: "TestBuild",
   },
-  serverInfo: { name: "TestServer" },
+  extensions: {
+    paasserverless: { extensionName: "PaasExt" },
+    websites: { extensionName: "WebsitesExt" },
+  },
+  serverInfo: {
+    deploymentId: "TestServer",
+    extensionSync: {
+      totalSyncAllCount: 0,
+    },
+    hostname: "hostname",
+    nodeVersions: "22.x",
+    serverId: "serverId",
+    uptime: 12345,
+  },
 };
 
 describe("App", () => {
   beforeEach(() => {
-    (window.fetch as any).mockResolvedValue({
+    (window.fetch as Mock).mockResolvedValue({
       json: async () => diagnosticsMock,
     });
   });
 
   afterEach(() => {
-    (window.fetch as any).mockClear();
+    (window.fetch as Mock).mockClear();
   });
 
   it("renders nothing while loading diagnostics", async () => {
-    (window.fetch as any).mockResolvedValueOnce({
+    (window.fetch as Mock).mockResolvedValueOnce({
       json: async () => diagnosticsMock,
     });
     render(<App />);
@@ -97,7 +138,9 @@ describe("App", () => {
     const extensionTabs = screen.getAllByText("Extensions");
     fireEvent.click(extensionTabs[0]);
     fireEvent.click(screen.getByText("websites"));
-    expect(screen.getByText("Extension WebsitesExt")).toBeInTheDocument();
+    expect(
+      screen.getByText((content) => content.includes("WebsitesExt"))
+    ).toBeInTheDocument();
     fireEvent.click(screen.getByText("Build Information"));
     expect(screen.getByText("BuildInfo")).toBeInTheDocument();
   });

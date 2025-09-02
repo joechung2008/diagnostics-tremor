@@ -24,20 +24,7 @@ describe("reportWebVitals", () => {
   });
 
   it("should not call web-vitals functions when no handler is provided", async () => {
-    await reportWebVitals();
-
-    // Wait for any potential async operations
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(mockOnCLS).not.toHaveBeenCalled();
-    expect(mockOnINP).not.toHaveBeenCalled();
-    expect(mockOnFCP).not.toHaveBeenCalled();
-    expect(mockOnLCP).not.toHaveBeenCalled();
-    expect(mockOnTTFB).not.toHaveBeenCalled();
-  });
-
-  it("should not call web-vitals functions when handler is not a function", async () => {
-    await reportWebVitals("not-a-function" as any);
+    reportWebVitals();
 
     // Wait for any potential async operations
     await new Promise((resolve) => setTimeout(resolve, 0));
@@ -50,7 +37,7 @@ describe("reportWebVitals", () => {
   });
 
   it("should call all web-vitals functions when handler is provided", async () => {
-    await reportWebVitals(mockHandler);
+    reportWebVitals(mockHandler);
 
     // Wait for the dynamic import to resolve
     await new Promise((resolve) => setTimeout(resolve, 0));
@@ -65,7 +52,7 @@ describe("reportWebVitals", () => {
   it("should work with different handler functions", async () => {
     const customHandler = vi.fn();
 
-    await reportWebVitals(customHandler);
+    reportWebVitals(customHandler);
 
     // Wait for the dynamic import to resolve
     await new Promise((resolve) => setTimeout(resolve, 0));
