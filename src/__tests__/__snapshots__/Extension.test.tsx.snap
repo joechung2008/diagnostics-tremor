@@ -1,0 +1,297 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Extension > should render correctly with all props 1`] = `
+<div
+  class="flex flex-col gap-2 max-h-max overflow-y-auto p-1 grow"
+>
+  <h2
+    class="font-semibold text-3xl"
+  >
+    Test Extension
+  </h2>
+  <div>
+    <h3
+      class="text-2xl"
+    >
+      Configuration
+    </h3>
+    <div>
+      <div
+        class="w-full overflow-auto whitespace-nowrap"
+      >
+        <table
+          aria-label="Configuration"
+          class="w-full caption-bottom border-b border-gray-200 dark:border-gray-800"
+          tremor-id="tremor-raw"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Key
+              </th>
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="divide-y divide-gray-200 dark:divide-gray-800"
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                key1
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                value1
+              </td>
+            </tr>
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                key2
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                value2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3
+      class="text-2xl"
+    >
+      Stage Definitions
+    </h3>
+    <div>
+      <div
+        class="w-full overflow-auto whitespace-nowrap"
+      >
+        <table
+          aria-label="Stage Definitions"
+          class="w-full caption-bottom border-b border-gray-200 dark:border-gray-800"
+          tremor-id="tremor-raw"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Key
+              </th>
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="divide-y divide-gray-200 dark:divide-gray-800"
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                stage1
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                step1, step2
+              </td>
+            </tr>
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                stage2
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                step3
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Extension > should render correctly with minimal props 1`] = `
+<div
+  class="flex flex-col gap-2 max-h-max overflow-y-auto p-1 grow"
+>
+  <h2
+    class="font-semibold text-3xl"
+  >
+    Test Extension
+  </h2>
+</div>
+`;
+
+exports[`Extension > should render correctly without config 1`] = `
+<div
+  class="flex flex-col gap-2 max-h-max overflow-y-auto p-1 grow"
+>
+  <h2
+    class="font-semibold text-3xl"
+  >
+    Test Extension
+  </h2>
+  <div>
+    <h3
+      class="text-2xl"
+    >
+      Stage Definitions
+    </h3>
+    <div>
+      <div
+        class="w-full overflow-auto whitespace-nowrap"
+      >
+        <table
+          aria-label="Stage Definitions"
+          class="w-full caption-bottom border-b border-gray-200 dark:border-gray-800"
+          tremor-id="tremor-raw"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Key
+              </th>
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="divide-y divide-gray-200 dark:divide-gray-800"
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                stage1
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                step1, step2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Extension > should render correctly without stageDefinition 1`] = `
+<div
+  class="flex flex-col gap-2 max-h-max overflow-y-auto p-1 grow"
+>
+  <h2
+    class="font-semibold text-3xl"
+  >
+    Test Extension
+  </h2>
+  <div>
+    <h3
+      class="text-2xl"
+    >
+      Configuration
+    </h3>
+    <div>
+      <div
+        class="w-full overflow-auto whitespace-nowrap"
+      >
+        <table
+          aria-label="Configuration"
+          class="w-full caption-bottom border-b border-gray-200 dark:border-gray-800"
+          tremor-id="tremor-raw"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Key
+              </th>
+              <th
+                class="border-b px-4 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-50 border-gray-200 dark:border-gray-800"
+              >
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="divide-y divide-gray-200 dark:divide-gray-800"
+          >
+            <tr
+              class="[&_td:last-child]:pr-4 [&_th:last-child]:pr-4 [&_td:first-child]:pl-4 [&_th:first-child]:pl-4"
+            >
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                key1
+              </td>
+              <td
+                class="p-4 text-sm text-gray-600 dark:text-gray-400"
+              >
+                value1
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;

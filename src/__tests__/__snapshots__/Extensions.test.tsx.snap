@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Extensions > should render correctly with extensions 1`] = `
+<nav
+  aria-label="Extensions"
+  class="flex flex-col gap-2 max-h-max p-1 overflow-x-hidden"
+>
+  <button
+    class="relative inline-flex items-center whitespace-nowrap rounded-md border text-sm font-medium transition-all duration-100 ease-in-out disabled:pointer-events-none disabled:shadow-none outline-offset-2 outline-0 focus-visible:outline-2 outline-blue-500 dark:outline-blue-500 shadow-none border-transparent text-gray-900 dark:text-gray-50 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800/80 disabled:text-gray-400 dark:disabled:text-gray-600 cursor-pointer min-h-[content] justify-start p-1 text-left w-full"
+    tremor-id="tremor-raw"
+  >
+    Extension A
+  </button>
+  <button
+    class="relative inline-flex items-center whitespace-nowrap rounded-md border text-sm font-medium transition-all duration-100 ease-in-out disabled:pointer-events-none disabled:shadow-none outline-offset-2 outline-0 focus-visible:outline-2 outline-blue-500 dark:outline-blue-500 shadow-none border-transparent text-gray-900 dark:text-gray-50 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800/80 disabled:text-gray-400 dark:disabled:text-gray-600 cursor-pointer min-h-[content] justify-start p-1 text-left w-full"
+    tremor-id="tremor-raw"
+  >
+    Extension B
+  </button>
+</nav>
+`;
